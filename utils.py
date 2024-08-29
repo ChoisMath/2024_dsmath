@@ -126,9 +126,6 @@ def send_mail2(pdf_content, email, school, name):
     part.add_header('Content-Disposition', 'attachment', filename=f"{school}_{name}.pdf")
     msg.attach(part)
 
-    # attach the instance 'part' to instance 'msg'
-    msg.attach(part)
-
     # creates SMTP session
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
