@@ -1,14 +1,9 @@
 import pandas as pd
-# import re
 import numpy as np
 import streamlit as st
-# from utils import get_pdfdata_from_sheet
-# from utils import send_mail
 from utils import client
 from utils import send_mail2
-# from fpdf import FPDF
 from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 from reportlab.pdfbase.ttfonts import TTFont
@@ -42,7 +37,7 @@ def conditional_filter(data,
 
 def create_certificate(school, balgub, grade, ban, bun, name):
     # Register the font
-    font_path = "../malgun.ttf"
+    font_path = "./malgun.ttf"
     pdfmetrics.registerFont(TTFont("맑은고딕", font_path))
     font_path2 = "./malgunbd.ttf"
     pdfmetrics.registerFont(TTFont("맑은고딕굵게", font_path2))
@@ -117,7 +112,7 @@ def create_certificate(school, balgub, grade, ban, bun, name):
     pdf.drawString(x_offset + 15, y_offset, description2)
 
     # Add stamp image
-    stamp_image_path = "../dojang.png"
+    stamp_image_path = "./dojang.png"
     pdf.drawImage(stamp_image_path, 422, y_offset - 65, width=50, height=50)
 
     # Add footer
