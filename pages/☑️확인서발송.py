@@ -111,6 +111,11 @@ def create_certificate(school, balgub, grade, ban, bun, name):
     y_offset -= row_height
     pdf.drawString(x_offset + 15, y_offset, description2)
 
+    # Add stamp image
+    stamp_image_path = "./dojang.png"
+    pdf.drawImage(stamp_image_path, 422, y_offset - 65, width=50, height=50)
+
+
     # Add footer
     pdf.setFont('맑은고딕굵게', 20)
     footer = "대구중등수학연구회 회장 문 희 정"
@@ -118,9 +123,7 @@ def create_certificate(school, balgub, grade, ban, bun, name):
     x_offset = (width // 2) - (str_width // 2)
     pdf.drawString(x_offset, y_offset - 50, footer)
 
-    # Add stamp image
-    stamp_image_path = "./dojang.png"
-    pdf.drawImage(stamp_image_path, 422, y_offset - 65, width=50, height=50)
+
 
 
 
